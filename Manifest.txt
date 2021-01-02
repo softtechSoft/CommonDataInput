@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: 11.0.5 (Oracle Corporation)
+Main-Class: com.datainputbatch.CommonDataInput
+Class-Path: lib/log4j-1.2.17.jar lib/mysql-connector-java-8.0.18.jar
