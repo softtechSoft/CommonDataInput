@@ -90,12 +90,11 @@ public class CsvFieldCheck {
 		ResultSet rs;
 		try {
 			String sql = "select count(*) from information_schema.columns where table_schema='ems' and table_name='salaryinfo'";
-
 			rs = stmt.executeQuery(sql);
 
 			while (rs.next()) {
 				int dblength = Integer.parseInt(rs.getString(1));
-				if (items != (dblength - 3)) {
+				if (items != dblength) {
 					LogUtils.logError("データの項目数が正しくありません。項目数[" + items + "] " );
 					return false;
 				}
@@ -167,14 +166,14 @@ public class CsvFieldCheck {
 	 * 数字のチェック
 	 *
 	 * @param　date 取込データ
-	 * @return　RUE成功、FALSE失敗
+	 * @return　TRUE成功、FALSE失敗
 	 */
 
 	public static boolean fieldNumChk(String[] data) {
 
 		try {
 			for (int i = 3; i < data.length; i++) {
-				if(i==9) continue;
+				if(i==12 || i == 29) continue;
 				Double.parseDouble(data[i]);
 			}
 		} catch (NumberFormatException e) {

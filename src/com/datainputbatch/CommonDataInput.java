@@ -32,9 +32,9 @@ public class CommonDataInput {
 		LogUtils.logInfo("給料データ取込開始...");
 
 		// DEBUG用
-//		args = new String[2];
-//		args[0] = "202012";
-//		args[1] = "D:/InputData/datainput.csv";
+		args = new String[2];
+		args[0] = "202012";
+		args[1] = "D:/InputData/salaryInfo.csv";
 
 		// パラメータ数判断
 		if (args == null || args.length != 2) {
@@ -145,6 +145,7 @@ public class CommonDataInput {
 
 			// 1行ずつCSVファイルを読み込
 			while ((line = br.readLine()) != null) {
+
 				//空行を飛ばす
 				if (line.length()==0 ) continue;
 				// データチェック
@@ -182,45 +183,68 @@ public class CommonDataInput {
 				+ "month, "
 				+ "paymentDate, "
 				+ "base, "
+				+ "overTime, "
+				+ "shortage, "
 				+ "overTimePlus, "
 				+ "shortageReduce, "
 				+ "transportExpense, "
+				+"specialAddition,"
 				+ "allowancePlus, "
 				+ "allowanceReduce, "
 				+ "allowanceReason, "
-				+ "welfareSelf, "
-				+ "welfareComp, "
+				+"welfarePensionSelf,"
+				+"welfarePensionComp,"
+				+ "welfareHealthSelf, "
+				+ "welfareHealthComp, "
 				+ "welfareBaby, "
 				+ "eplyInsSelf, "
 				+ "eplyInsComp, "
 				+ "eplyInsWithdraw, "
+				+"wkAcccpsIns,"
 				+ "withholdingTax, "
 				+ "municipalTax, "
 				+ "rental, "
 				+ "rentalMgmtFee, "
+				+"specialReduce,"
 				+ "sum,"
-				+ "deleteFlg) VALUES "
+				+"totalFee,"
+				+"remark,"
+				+ "deleteFlg,"
+				+ "insertDate,"
+				+ "updateDate) VALUES "
 				+ "('"+ data[0] + "','"
 				+ data[1] + "','"
-				+ data[2] + "',"
-				+ data[3] + ","
-				+ data[4]+ ","
-				+ data[5] + ","
-				+ data[6] + ","
-				+ data[7] + ","
-				+ data[8] + ",'"
-				+ data[9]+ "',"
-				+ data[10] + ","
-				+ data[11] + ","
-				+ data[12] + ","
-				+ data[13] + ","
-				+ data[14] + ","
-				+ data[15] + ","
-				+ data[16] + ","
-				+ data[17] + ","
-				+ data[18]+ ","
-				+ data[19]+ ","
-				+ data[20] + ",'0')";
+				+ data[2] + "','"
+				+ data[3] + "','"
+				+ data[4] + "','"
+				+ data[5] + "','"
+				+ data[6] +"','"
+				+ data[7] +"','"
+				+ data[8] + "','"
+				+ data[9] +"','"
+				+ data[10] + "','"
+				+ data[11] + "','"
+				+ data[12] + "','"
+				+ data[13] + "','"
+				+ data[14] +"','"
+				+ data[15] + "','"
+				+ data[16] + "','"
+				+ data[17] + "','"
+				+ data[18]+ "','"
+				+ data[19]+ "','"
+				+ data[20] + "','"
+				+ data[21] + "','"
+				+ data[22] + "','"
+				+ data[23]+ "','"
+				+ data[24] + "','"
+				+ data[25] +"','"
+				+ data[26] + "','"
+				+ data[27] + "','"
+				+ data[28]+ "','"
+				+ data[29] + "','"
+				+ data[30] +"','"
+				+ data[31] + "','"
+				+ data[32] + "','0')";
 
 		return sql;
 	}
